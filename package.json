@@ -7,7 +7,7 @@
     "compile:sass": "node-sass ./sass/main.scss ./css/style.css -w"
   },
   "author": "",
-  "license": "ISC",
+  "license": "ISC", 
   "devDependencies": {
     "node-sass": "^7.0.1"
   }

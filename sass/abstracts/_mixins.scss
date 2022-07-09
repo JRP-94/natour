@@ -1,5 +1,5 @@
 @mixin clearfix {
-    &::after{
+    &::after {
         content: "";
         display: table;
         clear: both;
@@ -9,8 +9,52 @@
 @mixin absoluteCenter {
 
     position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+// MEDIA QUERY MANAGER
+/* 
+-----------------------------------------------------------
+    RANGE           |   BP VALUE        |       DEVICE
+-----------------------------------------------------------
+0px - 600px         |   phone           |   Phone
+600px - 900px       |   tab-port        |   Tablet Portrait
+900px - 1200px      |   tab-land        |   Tablet Landscape
+1200px - 1800px     |   !N/A!           |   Default
+1800px +            |   large-desktop   |   Large Desktop
+
+ORDER: Base + Typo > General Layout + Grid > Page Layout > Components
+
+*/
+
+@mixin respond($breakpoint) {
+
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) { 
+            @content
+        }
+    }
+
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content
+        }
+    }
+
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content
+        }
+    }
+
+    @if $breakpoint==large-desktop {
+        @media (min-width: 112.5em) {
+            @content
+        }
+    }
+
 }
