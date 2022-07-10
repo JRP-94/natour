@@ -11,12 +11,18 @@
     visibility: hidden;
     transition: all .3s;
 
-    &:target{
+    @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, 0.3);
+    }
+
+    &:target {
         opacity: 1;
         visibility: visible;
     }
 
-    
+
 
     &-content {
         @include absoluteCenter;
@@ -69,12 +75,12 @@
         hyphens: auto;
     }
 
-    &:target &-content{
+    &:target &-content {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
     }
 
-    &-close{
+    &-close {
 
         &:link,
         &:visited {
@@ -89,7 +95,7 @@
 
         }
 
-        &:hover{
+        &:hover {
             color: $color-primary;
         }
     }
